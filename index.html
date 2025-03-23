@@ -54,19 +54,19 @@
 
     <!-- Hero Section -->
     <div class="container">
-        <h1>તમારું પેશન વધારવા માટે શ્રેષ્ઠ પ્રોડક્ટ!</h1>
-        <p>તમારા પેશન ને વધારવા માટે વિશેષ પ્રોડક્ટ્સ, આજે જ ઓર્ડર કરો!</p>
-        <a href="https://wa.me/8849536560" class="button">WhatsApp ઓર્ડર કરો</a>
+        <h1>To Increase your Stamina!</h1>
+        <p>Try with Booster Capsules, Order Now!</p>
+        <a href="https://wa.me/8849536560" class="button">Order on WhatsApp</a>
     </div>
 
     <!-- Contact Us Section -->
     <div class="container">
-        <h2>સંપર્ક કરો</h2>
+        <h2>Contact Us</h2>
         <form action="https://script.google.com/macros/s/AKfycbwLKp61BQfHdEjClkqpFaYGARE-YV1Z6yoRbobgY_IX3O2PnfI8UQsDXE5pRZHsUEbY/exec" method="post"></form>
         <form class="contact-form" id="contactForm">
-            <input type="text" id="clientName" placeholder="તમારું નામ" required>
-            <input type="tel" id="clientPhone" placeholder="તમારો ફોન નંબર" required>
-            <button type="submit" class="button">સબમિટ કરો</button>
+            <input type="text" id="clientName" placeholder="Your Name" required>
+            <input type="text" id="clientPhone" name="clientPhone" placeholder="Your Number" pattern="^[0-9]{10}$" required>
+            <button type="submit" class="button">Submit</button>
         </form>
         <p id="responseMessage"></p>
     </div>
@@ -85,13 +85,24 @@
             })
             .then(response => response.text())
             .then(data => {
-                document.getElementById("responseMessage").innerText = "તમારું ફોર્મ સફળતાપૂર્વક સબમિટ થયું!";
+                document.getElementById("responseMessage").innerText = "Submitted Successfully!";
                 document.getElementById("contactForm").reset();
             })
             .catch(error => {
-                document.getElementById("responseMessage").innerText = "કોઈ ભૂલ આવી, ફરી પ્રયાસ કરો.";
+                document.getElementById("responseMessage").innerText = "Error, Try Again.";
             });
         });
+        function validatePhone() {
+    let phone = document.getElementById("clientPhone").value;
+    let regex = /^[0-9]{10}$/;
+
+    if (!regex.test(phone)) {
+        alert("Please enter a valid 10-digit phone number.");
+        return false;
+    }
+    return true;
+}
+
     </script>
 
 </body>
