@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="gu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sexual Wellness | Enhance Your Passion</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        h1, h2 {
+            color: #d63447;
+        }
+        .button {
+            display: inline-block;
+            padding: 12px 25px;
+            background: #d63447;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        .button:hover {
+            background: #b92b3f;
+        }
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        input {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <div class="container">
+        <h1>તમારું પેશન વધારવા માટે શ્રેષ્ઠ પ્રોડક્ટ!</h1>
+        <p>તમારા પેશન ને વધારવા માટે વિશેષ પ્રોડક્ટ્સ, આજે જ ઓર્ડર કરો!</p>
+        <a href="https://wa.me/8849536560" class="button">WhatsApp ઓર્ડર કરો</a>
+    </div>
+
+    <!-- Contact Us Section -->
+    <div class="container">
+        <h2>સંપર્ક કરો</h2>
+        <form action="https://script.google.com/macros/s/AKfycbwLKp61BQfHdEjClkqpFaYGARE-YV1Z6yoRbobgY_IX3O2PnfI8UQsDXE5pRZHsUEbY/exec" method="post"></form>
+        <form class="contact-form" id="contactForm">
+            <input type="text" id="clientName" placeholder="તમારું નામ" required>
+            <input type="tel" id="clientPhone" placeholder="તમારો ફોન નંબર" required>
+            <button type="submit" class="button">સબમિટ કરો</button>
+        </form>
+        <p id="responseMessage"></p>
+    </div>
+   
+    <script>
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            
+            let clientName = document.getElementById("clientName").value;
+            let clientPhone = document.getElementById("clientPhone").value;
+
+            fetch("https://script.google.com/macros/s/AKfycbwLKp61BQfHdEjClkqpFaYGARE-YV1Z6yoRbobgY_IX3O2PnfI8UQsDXE5pRZHsUEbY/exec", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: `name=${clientName}&phone=${clientPhone}`
+            })
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("responseMessage").innerText = "તમારું ફોર્મ સફળતાપૂર્વક સબમિટ થયું!";
+                document.getElementById("contactForm").reset();
+            })
+            .catch(error => {
+                document.getElementById("responseMessage").innerText = "કોઈ ભૂલ આવી, ફરી પ્રયાસ કરો.";
+            });
+        });
+    </script>
+
+</body>
+</html>
